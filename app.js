@@ -3,6 +3,7 @@ const firebase = require("./firebase");
 const nodemailer = require("nodemailer");
 const app = express();
 app.use(express.json());
+var port = process.env.PORT || 8080;
 
 app.post("/getcode", async (req, res) => {
   let email = req.body.email;
@@ -75,4 +76,4 @@ app.post("/verify", async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log("App is connected ..."));
+app.listen(port, () => console.log(`App is connected ... ${port}`));
